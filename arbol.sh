@@ -10,25 +10,27 @@ function trenzas
 	done
 }
 fichero=$(pwd)
-
-function CreateDir
-{
-
-   # set -xv
-   typeset -i level="$1"
-   typeset    dirname="$2"
-
-   mkdir $dirname/sub1/
-   mkdir $dirname/sub2/
-
-   (( level =- 1 )) 
-
-   if [ $level -gt 0 ] ; then
-      CreateDir $level "$dirname/sub1"
-      CreateDir $level "$dirname/sub2"
-   fi
+tabs(){
+   for i in $1;do
+      printf "\n\t"
+   done
 }
-CreateDir
 names=$fichero|egrep "([^\/]+)"
 echo $fichero
-echo ${mathc[0]}
+echo "${array[0]} ${array[1]} ${array[2]} ${array[3]}"
+let contador=0
+counter(){
+   for file in "$1"/* 
+   do 
+   if [ -d "$file" ]
+   then
+            tabs $contador
+            printf ${file##*/}
+            echo ""
+            contador=(contador)+1
+            counter "$file"
+    fi
+    done
+}
+counter "/users/samuelarturogarridosanchez/Desktop/"
+echo ""
