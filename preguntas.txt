@@ -1,0 +1,5 @@
+¿Cuáles son los 2 principales paradimas que tiene C?
+Orientado a Objetos y Estructurado
+Imperativo y Declarativo
+Estructurado e Imperativo
+Funcional y Reflectivoo
