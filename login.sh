@@ -5,8 +5,25 @@ fi
 echo "Bienvenido a la prebe Shell"
 echo "Por favor, inicia sesión."
 ##Evita que le pongas ^C o ^Z
-trap '' SIGINT 
-trap '' SIGSTOP 
+#trap '' SIGINT 
+#trap '' SIGSTOP
+
+Salt=$1;
+HashLinux="md5";
+contrasenaN=$3;
+__RPWD=$2; 
+for lista in $contrasenaN
+do
+        pass_temp=`mkpasswd -H $HashLinux "$lista" -S $Salt |cut -f4 -d ‘$’`;
+        if [ "$__RPWD" = "$pass_temp" ]; then
+                echo ""
+                echo "Password Cracked."
+                echo "Decrypted password is: $lista"
+                exit
+        fi
+        i=`expr $i + 1`;
+done
+
 let user
 let contrasena
 read -p "Ingrese un nombre de usuario (registrado en el equipo actual): " user
