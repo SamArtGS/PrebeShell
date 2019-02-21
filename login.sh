@@ -8,34 +8,18 @@ echo "Por favor, inicia sesión."
 #trap '' SIGINT 
 #trap '' SIGSTOP
 
-Salt=$1;
-HashLinux="md5";
-contrasenaN=$3;
-__RPWD=$2;
-mkpasswd -m sha-512 12345 -S ih6NzSZL
-for lista in $contrasenaN
-do
-        pass_temp=`mkpasswd -H $HashLinux "$lista" -S $Salt |cut -f4 -d ‘$’`;
-        if [ "$__RPWD" = "$pass_temp" ];then
-                echo " $lista"
-                exit
-        fi
-        i=`expr $i + 1`;
-done
 
 let user
 let contrasena
+let salt
 read -p "Ingrese un nombre de usuario (registrado en el equipo actual): " user
+if grep -rnw '/etc/shadow' -e $user;then
+{
 read -s "Ingresa la contraseña:" contrasena
+salt=egrep -o "$user:(.*$){1}" /etc/shadow
+if((mkpasswd -m sha-512 contrasena -S $salt==))
+}else{
+echo "No te encuentras registrado, vete AL"
+}
 echo "$user"
 echo "$contrasena"
-export contrasena
-export usuario = `echo $usuario | cut -d '$' -f1`
-export primeraParte=`echo $contrasena | cut -d '$' -f2`
-export segundaParte=`echo $contrasena | cut -d '$' -f3`
-if (($user!=$(grep "$user" /etc/shadow | cut -d: -f1)));then
-	echo "Inciación con éxito"
-else
-	echo "ValisteV"
-	echo ""
-	exit
