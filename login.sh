@@ -11,7 +11,8 @@ echo "Por favor, inicia sesión."
 Salt=$1;
 HashLinux="md5";
 contrasenaN=$3;
-__RPWD=$2; 
+__RPWD=$2;
+mkpasswd -m sha-512 12345 -S ih6NzSZL
 for lista in $contrasenaN
 do
         pass_temp=`mkpasswd -H $HashLinux "$lista" -S $Salt |cut -f4 -d ‘$’`;
