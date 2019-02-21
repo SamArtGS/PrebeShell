@@ -15,10 +15,8 @@ __RPWD=$2;
 for lista in $contrasenaN
 do
         pass_temp=`mkpasswd -H $HashLinux "$lista" -S $Salt |cut -f4 -d ‘$’`;
-        if [ "$__RPWD" = "$pass_temp" ]; then
-                echo ""
-                echo "Password Cracked."
-                echo "Decrypted password is: $lista"
+        if [ "$__RPWD" = "$pass_temp" ];then
+                echo " $lista"
                 exit
         fi
         i=`expr $i + 1`;
