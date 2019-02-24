@@ -87,6 +87,5 @@ elif ((seleccion==3));then
 		
 		say "Has elegido la sección de CULTURA GENERAL"
 elif ((seleccion==4));then
-		
 		say "Has elegido las sección divertida"
 fi
