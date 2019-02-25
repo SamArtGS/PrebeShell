@@ -1,36 +1,49 @@
 #!/bin/bash
-function trenzas
-{
-	echo "1"
-	echo "1"
-	print "L"
-	for i in *;do
-		print "-"
-	print $1
-	done
-}
 fichero=$(pwd)
+addtabs(){
+  for i in $1;do
+  printf "           "
+  done
+}
 tabs(){
    for i in $1;do
-      printf "\n\t"
-   done
+    echo""
+    printf "   "
+    echo "|"
+    printf "   "
+    echo "|"
+    printf "   "
+    printf " - - -"
+    printf ${1##*/} | cut -d "/" -f5
+    counter $file $contador
+    done      
 }
-names=$fichero|egrep "([^\/]+)"
-echo $fichero
-echo "${array[0]} ${array[1]} ${array[2]} ${array[3]}"
 let contador=0
 counter(){
    for file in "$1"/* 
    do 
-   if [ -d "$file" ]
-   then
-            tabs $contador
+   if [ -f "$file" ];then
+            #tabs $contador
+            printf ${file##*/} | cut -d "/" -f8
+            #echo ""
+            let contador=$2+1
+            tabs $file $1
+            counter $file $contador
+              
+    fi
+  done
+  for file in "$1"/* 
+  do 
+    if [ -d "$file" ];then
+            #tabs $contador
             printf ${file##*/}
-            echo ""
-            contador=(contador)+1
-            counter "$file"
+            #echo ""
+            let contador=$2+1
+            tabs $file $1
+            
+              
     fi
     done
 }
-counter "/users/samuelarturogarridosanchez/Desktop/"
+counter "/users/samuelarturogarridosanchez/desktop/CProteco" $contador
 echo ""

@@ -3,5 +3,3 @@ Orientado a Objetos y Estructurado
 Imperativo y Declarativo
 Estructurado e Imperativo
 Funcional y Refectivo
-
-¿Q
