@@ -1,3 +1,3 @@
 #!/bin/bash
-
-cat /proc/driver/rtc |grep 'rtc_time' | grep '[0-9]*:[0-9]*:[0-9]*' -Eo
+echo -e "\e[36mLa hora es:"
+/sbin/hwclock | grep '[0-9]*:[0-9]*:[0-9]*' -Eo

@@ -14,36 +14,24 @@ tabs(){
     echo "|"
     printf "   "
     printf " - - -"
-    printf ${1##*/} | cut -d "/" -f5
-    counter $file $contador
+    ls | cut -d "/" -f8
+    #counter $file $contador
     done      
 }
 let contador=0
 counter(){
    for file in "$1"/* 
    do 
-   if [ -f "$file" ];then
-            #tabs $contador
-            printf ${file##*/} | cut -d "/" -f8
-            #echo ""
-            let contador=$2+1
-            tabs $file $1
-            counter $file $contador
-              
-    fi
-  done
-  for file in "$1"/* 
-  do 
-    if [ -d "$file" ];then
+   if [ -d "$file" ];then
             #tabs $contador
             printf ${file##*/}
             #echo ""
             let contador=$2+1
-            tabs $file $1
-            
+            tabs ${file##*/} $1
+            counter ${file##*/} $contador
               
     fi
-    done
+  done
 }
-counter "/users/samuelarturogarridosanchez/desktop/CProteco" $contador
+counter "/home/samuel/Escritorio" $contador
 echo ""

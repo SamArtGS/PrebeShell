@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo -e "\t\e[34mEsta prebeshell fue hecha gracias al trabajo y esfuerzo de: "
+echo ""
+echo -e "\t\t\e[1;33m**************************************"
+echo -e "\t\t\e[1;33m**** Samuel Arturo garrido Sánchez ***"
+echo -e "\t\t\e[1;33m**************************************"
+echo ""
+echo -e "\t\t\e[1;33m######################################"
+echo -e "\t\t\e[1;33m#### Rolando Miguel Álvarez Gomez ####"
+echo -e "\t\t\e[1;33m######################################"
+echo ""
+echo -e "\t\t\e[1;33m--------------------------------------"
+echo -e "\t\t\e[1;33m------ Fernando Maceda Patricio ------"
+echo -e "\t\t\e[1;33m--------------------------------------"

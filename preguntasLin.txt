@@ -21,13 +21,13 @@ Menciona la diferencias entre yum y dnf.
 	2 No pertenecen a la misma distribución padre
 	3 No pertenece una a GNU/Linux
 	4 Ninguna de las anteriores
-
+r
 ¿Qué significan USB?
 	1 Memoria de Acceso Aleatorio
 	2 Almacenamiento Externo Medial
 	3 Universal Serial Bus
 	4 Unit of Software Bits
-
+r
 ¿En cuál carpeta puedo encontrar los logs del sistema?
 	1 En etc/shadow
 	2 En var/log
@@ -39,19 +39,19 @@ r
 	2 Terminal
 	3 Screen
 	4 Red
-
+r
 ¿Qué hace el comando sudo?
 	1 Retorna nulo
 	2 Inicia sesión
 	3 Ejecuta un comando como root
 	4 Cambia de sesión
-
+r
 ¿En cual carpeta nunca habrá nada?
 	1 dev/null
 	2 sbin/null
 	3 home/trash
 	4 tmp/ge
-
+r
 ¿Cómo puedo hacer impresiones en shell scripting?
 	1 pwd
 	2 declare -i hola

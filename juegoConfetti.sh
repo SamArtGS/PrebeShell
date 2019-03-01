@@ -1,17 +1,27 @@
 #!/bin/bash
-
+puntaje="1000"
+let jaja=""
 function preguntas
 {
-	while IFS='' read -r line|| [[ -n "$line" ]]; do
+while IFS='' read -r line|| [[ -n "$line" ]]; do
     echo $line
-    if (( "$line" == "r"));then
-    	read -p "Ingresa la respuesta:" p
-    fi
+	sleep 2
+	clear
     done < "$1"
 }
 clear
-echo "         C O N F E T T I P R E B E S "
-echo ""
+echo -e "\e[95m✷ 　 　　 　 ·　 ˚ * .
+ 　 　　 *　　 * ⋆ 　 .✷ 　 　　 　 ·　 ˚ * .
+ 　 　　 *　　 * ⋆ 　 .
+ · 　　 ⋆ 　　　 ˚ ˚ 　　 ✦　 ⋆ · 　 * 　　　　 ⋆ ✧　 　 · 　 ✧　✵ 　 · ✵
+ · 　　 ⋆ 　　　 ˚ ˚ 　　 ✦　 ⋆ · 　 *　　　　 ⋆ ✧　 　 · 　 ✧　✵　 · ✵"
+echo "  ____ ___  _   _ _____ _____ _____ _____ ___ ____  ____  _____ ____ 
+ / ___/ _ \| \ | |  ___| ____|_   _|_   _|_ _|  _ \|  _ \| ____| __ )| ____|
+| |  | | | |  \| | |_  |  _|   | |   | |  | || |_) | |_) |  _| |  _ \|  _|  
+| |__| |_| | |\  |  _| | |___  | |   | |  | ||  __/|  _ <| |___| |_) | |___ 
+ \____\___/|_| \_|_|   |_____| |_|   |_| |___|_|   |_| \_\_____|____/|_____|
+"
+echo -e "\e[94m"
 echo "Bienvenido a CONFETI PREBE. La versión foreverAlone de CONFETI"
 #say "Hola CONFETI PREBES, aquí puedes ganar mucho, pero mucho, diiineeerooo."
 echo ""
@@ -43,11 +53,32 @@ while true; do
 	fi
 done
 array=("preguntasLin.txt" "preguntaFun.txt")
-let contador=1
-let total=15
+
+resp1=("" "" "" "" "" "" "" "" "" "" "" "" "" "" "")
+resp1C=("1" "3" "4" "3" "1" "1" "3" "4" "3" "1" "1" "3" "4" "3" "1")
+
+correctas=0
 if ((seleccion==1));then
+{
 		#say "Has elegido la sección de LINUX"
 		preguntas ${array[0]}
+    for i in {1..15}
+        do
+    read     -p "Respuesta: "${resp[i]}
+    done
+
+    for i in {1..15}
+        do
+    if [ ${resp1[i]} == ${resp1C[i]}];then
+        $(( correctas++ ))
+    fi
+    echo "tuviste" $correctas "correctas"
+}
 else
-		say "Has elegido las sección divertida"
+{
+		preguntas ${array[1]}
+		#say "Has elegido las sección divertida"
+		echo "Ingresa las respuestas correctas: "
+		read -p "Ingresa las respuestas correctas como un número" respuestas2
+}
 fi
