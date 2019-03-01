@@ -17,6 +17,7 @@ if grep -rnw '/etc/shadow' -e $user;then
 {
 read -s "Ingresa la contraseña:" contrasena
 salt=egrep -o "$user:(.*$){1}" /etc/shadow
+awk -F: '{gsub(/\$[^$]+$/, "$",$2);print $1,$2}' OFS=: /etc/shadow
 if((mkpasswd -m sha-512 contrasena -S $salt==))
 }else{
 echo "No te encuentras registrado, vete AL"

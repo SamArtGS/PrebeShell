@@ -101,13 +101,3 @@ case $opcion in
 *) echo "Selecciona una opción válida";;
 esac
 done
-
-
-
-
-
-
-
-
-
-
